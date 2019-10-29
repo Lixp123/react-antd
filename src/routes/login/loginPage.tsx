@@ -4,7 +4,7 @@ import{ Router, Route, Switch, Redirect }  from 'react-router-dom';
 import * as HistoryCreator from 'history';
 import { History } from 'history';
 import {componentPropsInterface, componentStateInterface} from '../containerInterface';
-
+// @connect((state:any) => { return  {state}  })
 class LoginPage extends React.PureComponent<componentPropsInterface, componentStateInterface>{
   constructor(props:any) {
     super(props);

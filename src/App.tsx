@@ -1,10 +1,10 @@
 import * as React from 'react';
-import{ Router, Route, Switch, Redirect }  from 'react-router-dom';
+import{ Router, Route, Switch }  from 'react-router-dom';
 import * as HistoryCreator from 'history';
-import { History } from 'history';
 import * as reactRedux from 'react-redux';
 import './App.css';
 import {AppPage,LoginPage }   from './routes/index';
+
 export const history = (HistoryCreator as any).createBrowserHistory();
 let { Provider } = reactRedux;
 interface AppIsRequireProps {
@@ -17,12 +17,15 @@ export default class App extends React.PureComponent<AppIsRequireProps, { [rando
   }
   routerLoad(){
     return <div>
-      <Route path="/app" component={AppPage} />
-      <Route path="/login" component={LoginPage} />
-    </div>
+            <Switch>
+              <Route path="/app" component={AppPage} />
+              <Route path="/login" component={LoginPage} />
+            </Switch>
+        </div>
+      
   }
   componentDidMount(){
-    this.props.store.dispatch({type:'app/getUserInfoObj',payload:'999'})
+    this.props.store.dispatch({type:'app/getUserInfoObj',payload:'99889'})
   }
   render():any {
        return <Provider store={this.props.store}>

@@ -10,22 +10,26 @@ class Login extends React.PureComponent<componentPropsInterface, componentStateI
     }
   }
   
-  routerLoad(){
+  routerLoad= () => {
     return <div onClick={()=>{
-      this.props.history.push('/login/login/context')
-    }}>登录</div>
+      this.props.history.push({pathname: '/login/login/context', state: {}})
+    }}>登录66</div>
   }
 
   setDate = ()=>{
     alert(this.state.myState)
   }
 
+  _loginInfo = () => {
+    
+  }
+
   componentDidMount(){
 
   }
 
-  render():any {
-       return this.routerLoad()
+  render() {
+       return <div>{this.routerLoad()}<input /></div>
   }
 }
 export default connect((state) => { return  {state}  })(Login)

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import{  Route }  from 'react-router-dom';
 import {componentPropsInterface, componentStateInterface} from '../containerInterface';
-import  { Routes } from '../../components'
+import  { RouteRef } from '../../components'
 import { Login ,Content } from '../index'
 // @connect((state:any) => { return  {state}  })
 class LoginPage extends React.PureComponent<componentPropsInterface, componentStateInterface>{
@@ -20,9 +20,9 @@ class LoginPage extends React.PureComponent<componentPropsInterface, componentSt
 
   render() {
        return <div>
-            <Routes path="/login/login" component={Login} />
+            <RouteRef path="/login/login" component={Login} />
             <Route exact path="/login/login/:id" component={Content} />
-            <Routes  path="/login/app" component={Content} />
+            <RouteRef  path="/login/app" component={Content} />
           </div>
   }
 }

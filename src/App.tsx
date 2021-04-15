@@ -13,7 +13,7 @@ interface AppIsRequireProps {
 
 export default class App extends React.PureComponent<AppIsRequireProps, { [random: string]: any }>{
   constructor(props:any) {
-    super(props);
+    super(props)
   }
   routerLoad(){
     return <div>

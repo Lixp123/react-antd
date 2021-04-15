@@ -1,9 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import{  Route }  from 'react-router-dom';
 
 interface RoutesProps {
   component:any,
-  path:any
+  path:any,
+  [random:string]:any
 }
 
 interface RoutesState {
@@ -17,11 +18,11 @@ export default class Routes extends React.PureComponent<RoutesProps,RoutesState>
     }
   }
 
-  componentWillReceiveProps(){
-    if(this.props.path == window.location.pathname){
+  getSnapshotBeforeUpdate() {
+    if(this.props.path === window.location.pathname){
       let myClass =  this.props.component.WrappedComponent
       let fun = new myClass(React)
-      fun && fun.returnQuery && fun.returnQuery()
+      fun && fun.returnQuery && fun.activated()
       this.setState({isShow:true})
     }else{
       this.setState({isShow:false})
@@ -30,8 +31,7 @@ export default class Routes extends React.PureComponent<RoutesProps,RoutesState>
 
   render(){
        return <div style={{display:this.state.isShow?'block':'none'}}>
-         <Route  path={this.props.path} component={this.props.component} />
+         <Route {...this.props} />
        </div>
-       
   }
 }
